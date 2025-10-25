@@ -1,3 +1,51 @@
+.menuImmagini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 immagini per riga */
+    gap: 30px;
+    justify-items: center;
+    margin: 40px auto;
+    max-width: 800px; /* limita la larghezza totale */
+}
+
+.menuImmagini img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 15px; /* bordi leggermente arrotondati */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ombra esterna lieve */
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.menuImmagini img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); /* un po’ più intensa al passaggio */
+}
+
+.sezioneOrdine {
+    position: relative;
+    background: white;
+    padding: 15px;
+    border: 2px solid #008cba;
+    border-radius: 8px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.btnRimuovi {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btnRimuovi:hover {
+    transform: scale(1.2);
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -5,12 +53,13 @@ body {
     padding: 0;
     color: #333;
 }
+
 .navBar {
     background-image: url("../img/panineria.png");
     background-size: cover;       /* Copre tutta la larghezza */
     background-position: center;  
     background-repeat: no-repeat; 
-    height: 250px;                
+    height: 300px;                
     display: flex;
     align-items: center;          /* Centra verticalmente i link */
     justify-content: left;      /* Centra orizzontalmente i link */
@@ -18,7 +67,7 @@ body {
     position: relative;
 }
 
-.navBar a {
+.navBar a, .btnIndex {
     color: white;
     text-decoration: none;
     font-size: 20px;
@@ -26,6 +75,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5); /* leggero sfondo trasparente */
     padding: 10px 20px;
     border-radius: 5px;
+    margin-left: 20px;
     transition: background-color 0.3s;
 }
 
