@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Prenota panino</title>
+    <title>Prenotazione</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <h1>BENVENUTO ALLA PANINERIA ROSSI</h1>
     </header>
 
-    <form name="form" method="get" action="output.php" onsubmit="return controllaInvio()">
+    <form name="form" method="get" action="fidelty.php" onsubmit="return controllaInvio()">
         <h2>Compila i seguenti campi:</h2>
 
         <div class="divDenominativo">

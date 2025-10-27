@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 
@@ -46,20 +42,19 @@
             <?php
 
             $totale = 0;
-
-            $denominativo = isset($_SESSION['denominativo']) ? $_SESSION['denominativo'] : null;
-            $tempoPrenotazione = isset($_SESSION['tempoPrenotazione']) ? $_SESSION['tempoPrenotazione'] : null;
+            $denominativo = isset($_GET['denominativo']) ? $_GET['denominativo'] : null;
+            $tempoPrenotazione = isset($_GET['tempoPrenotazione']) ? $_GET['tempoPrenotazione'] : null;
 
             echo "<strong>Denominativo:</strong> $denominativo<br>";
             echo "<strong>Data e ora prenotazione:</strong> $tempoPrenotazione<br><br>";
 
-            if (isset($_SESSION['hPanino'])) {
+            if (isset($_GET['hPanino'])) {
                 $ingredienti = [];
-                if (isset($_SESSION['hFormaggio']))  
+                if (isset($_GET['hFormaggio']))  
                     $ingredienti[] = "Formaggio";
-                if (isset($_SESSION['hPomodoro']))   
+                if (isset($_GET['hPomodoro']))   
                     $ingredienti[] = "Pomodoro";
-                if (isset($_SESSION['hLattuga']))    
+                if (isset($_GET['hLattuga']))    
                     $ingredienti[] = "Lattuga";
 
                 $stringIngredienti = "Hamburger classico con " . implode(", ", $ingredienti);
@@ -73,13 +68,13 @@
                         <td>$stringIngredienti</td>
                         <td>" . number_format($totaleHamburger, 2) . "</td></tr>";
             }
-            if (isset($_SESSION['pPanino'])) {
+            if (isset($_GET['pPanino'])) {
                 $ingredienti = [];
-                if (isset($_SESSION['pMaionese']))  
+                if (isset($_GET['pMaionese']))  
                     $ingredienti[] = "Maionese";
-                if (isset($_SESSION['pLttuga']))    
+                if (isset($_GET['pLttuga']))    
                     $ingredienti[] = "Lattuga";
-                if (isset($_SESSION['pPomodoro']))   
+                if (isset($_GET['pPomodoro']))   
                     $ingredienti[] = "Pomodoro";
 
                 $stringIngredienti = "Panino con pollo classico con " . implode(", ", $ingredienti);
@@ -93,8 +88,8 @@
                         <td>$stringIngredienti</td>
                         <td>" . number_format($totalePollo, 2) . "</td></tr>";
             }
-            if (isset($_SESSION['bibita'])) {
-                $bibita = $_SESSION['bibita'];
+            if (isset($_GET['bibita'])) {
+                $bibita = $_GET['bibita'];
 
                 switch ($bibita) {
                     case 'coca cola':
@@ -117,8 +112,8 @@
                         <td>$nomeBibita</td>
                         <td>" . number_format($prezzoBibita, 2) . "</td></tr>";
             }
-            if (isset($_SESSION['patatine'])) {
-                $tipoPatatine = $_SESSION['patatine'];
+            if (isset($_GET['patatine'])) {
+                $tipoPatatine = $_GET['patatine'];
 
                 switch ($tipoPatatine) {
                     case 'piccole':
@@ -138,8 +133,8 @@
                         <td>Patatine $tipoPatatine</td>
                         <td>" . number_format($prezzoPatatine, 2) . "</td></tr>";
             }
-            if (isset($_SESSION['nuggets'])) {
-                $tipoNuggets = $_SESSION['nuggets'];
+            if (isset($_GET['nuggets'])) {
+                $tipoNuggets = $_GET['nuggets'];
 
                 switch ($tipoNuggets) {
                     case 'normali':
@@ -157,8 +152,8 @@
                         <td>" . number_format($prezzoNuggets, 2) . "</td></tr>";
             }
 
-            if (isset($_SESSION['dessert'])) {
-                $tipoDessert = $_SESSION['dessert'];
+            if (isset($_GET['dessert'])) {
+                $tipoDessert = $_GET['dessert'];
 
                 switch ($tipoDessert) {
                     case 'oreo':
