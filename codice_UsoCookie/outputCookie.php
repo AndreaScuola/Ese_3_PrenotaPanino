@@ -1,6 +1,12 @@
 <?php
     if(isset($_COOKIE['ordinePanineria']))
         $datiCookie = json_decode($_COOKIE['ordinePanineria'], true);
+
+    session_start();
+    if(!isset($_SESSION["contatore"]))
+        $_SESSION["contatore"] = 1;
+    else
+        $_SESSION["contatore"] += 1;
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +29,10 @@
     </header>
 
     <div class="riepilogoOrdine">
-        <?php //Gestione codice sconto
+        <?php 
+            echo "<h2>Numero di visite a questa pagina in questa sessione: " . $_SESSION["contatore"] . "</h2><br>";
+
+            //Gestione codice sconto
             $scontoAttivo = false;
             if (isset($_GET['sconto'])) {
                 $codiceInserito = trim($_GET['sconto']);
