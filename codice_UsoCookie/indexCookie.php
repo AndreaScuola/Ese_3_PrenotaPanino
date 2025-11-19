@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if($_SESSION['user_id'] != null)
+        echo "Utente " . $_SESSION['user_id'] . " loggato con email: " . $_SESSION['email'] . "<br><br>";
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -13,6 +20,7 @@
     <nav class="navBar">
         <a href="https://www.itisrossi.edu.it/">Home</a>
         <a href="resetCookie.php">Cancella preferenze</a>
+        <a href="logInCookie.php">sign in/sign up</a>
     </nav>
 
     <header>
