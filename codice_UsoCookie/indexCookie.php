@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if($_SESSION['user_id'] != null)
+    if(isset($_SESSION['user_id']))
         echo "Utente " . $_SESSION['user_id'] . " loggato con email: " . $_SESSION['email'] . "<br><br>";
 ?>
 

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['emailIn'];
         $pwd = $_POST['pwdIn'];
 
-        $stmt = $conn->prepare("SELECT id, password FROM accessi WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, password FROM utenti WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pwd1 = $_POST['pwdUp1'];
         $pwd2 = $_POST['pwdUp2'];
 
-        $stmt = $conn->prepare("SELECT id, password FROM accessi WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, password FROM utenti WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else if ($pwd1 !== $pwd2) 
             $signupMsg = "<p style='color:red;'>Le password non corrispondono!</p>";
         else {
-            $stmt = $conn->prepare("INSERT INTO accessi (email, password) VALUES (?, ?)");
+            $stmt = $conn->prepare("INSERT INTO utenti (email, password) VALUES (?, ?)");
             $stmt -> bind_param("ss", $email, $pwd1);
 
             if ($stmt -> execute() === TRUE) 
